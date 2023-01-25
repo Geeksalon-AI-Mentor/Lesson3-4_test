@@ -69,7 +69,7 @@ flaskライブラリからFlask,render_template, requestをインポートし、
 
 inputで入力された値を`http://xxx/data`に`post`で送信するようにformの空白部分(~)を埋めてください。
 
-### 問④
+### 問④(app.py)
 
 問②で書いたコードに以下の処理を書き加えてください。
 
