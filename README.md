@@ -2,6 +2,23 @@
 これは教材Lesson3-4の確認問題となっています。Flaskの基本的な使い方を問うような問題になっているので挑戦してみてください。
 以下のような動作になっていれば問題ないです。
 
+## ①`http://127.0.0.1:5000`にアクセス
+
+![index htmlの画面](https://user-images.githubusercontent.com/86188830/214501768-1cae463f-c3bc-4472-9860-086e1277ddf1.png)
+
+## ②`http://127.0.0.1:5000/data`にアクセス（手動で打ち込み）
+
+![data htmlの画面](https://user-images.githubusercontent.com/86188830/214502027-e88f3f27-e27b-452b-b129-fff171efab71.png)
+
+## ③`355`と入力し送信ボタンを押した後の画面
+
+![送信ボタン押した後の画面](https://user-images.githubusercontent.com/86188830/214501958-40a8d2bb-8123-4080-98d3-1605cc39947e.png)
+
+先ほど`10`と表示されていた部分が入力した値に代わっています。
+
+
+## 問題の見方
+
 
 
 ## 問題１：flaskを使う準備
