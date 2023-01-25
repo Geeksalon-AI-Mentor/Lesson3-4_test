@@ -1,9 +1,13 @@
 # Lesson3-4確認問題
+これは教材Lesson3-4の確認問題となっています。Flaskの基本的な使い方を問うような問題になっているので挑戦してみてください。
+以下のような動作になっていれば問題ないです。
+
+
 
 ## 問題１：flaskを使う準備
 ### 問①(app.py)
 
-flaskライブラリからFlask,render_template, requestをインポートし、Flaskを使うためのおまじないを書いてappという変数に代入してください。
+flaskライブラリから`Flask`,`render_template`, `request`をインポートし、Flaskを使うためのおまじないを書いてappという変数に代入してください。
 
 ## 問題２：ルーティング
 ### 問①(app.py)
