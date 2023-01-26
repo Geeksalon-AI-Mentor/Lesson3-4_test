@@ -24,7 +24,9 @@
 
 - `git clone git@github.com:Geeksalon-AI-Mentor/Lesson3-4_test.git`を実行
 
-②コードの確認はLesson3-1で作成した`flasktest`という仮想環境で実行して動作を確認する。
+②Lesson3-4_testフォルダをVScodeで開いて問題に取り組む
+
+②コードの実行は**Lesson3-1**で作成した`flasktest`という仮想環境で実行して動作を確認する。
 
 ## 問題の見方
 - 問の隣にあるファイル名は手を加えるファイル名を示しています。
@@ -47,18 +49,63 @@
 
 flaskライブラリから`Flask`,`render_template`, `request`をインポートし、Flaskを使うためのおまじないを書いてappという変数に代入してください。
 
+<details>
+<summary>解答</summary>
+
+```python
+
+from flask import Flask, render_template, request
+app = Flask(__main__)
+
+```
+</details>
+
 ## 問題２：ルーティング
 ### 問①(app.py)
 
-`http://xxx/`にアクセスした時にindex.htmlを表示するコードを書いてください。関数名（処理名）をindexとしてください。
+`http://xxx/`にアクセスした時にindex.htmlを表示するコードを問題１のコードの後に書いてください。関数名（処理名）をindexとしてください。
+
+<details>
+<summary>解答</summary>
+
+```python
+@app.route('/')
+def index():
+    return render_template('index.html')
+```
+
+</details>
 
 ### 問②(app.py)
 
 問題①のルーティングに`GET`と`POST`の両方に対応できるようにコードを書き加えてください。
 
+<details>
+<summary>解答</summary>
+
+```python
+@app.route('/',method=['GET','POST'])
+def index():
+    return render_template('index.html')
+```
+
+</details>
+
 ### 問③(app.py)
 
 問題②のコードで`GET`の時のみ`index.html`が表示されるようにコードを書き換えてください。
+
+<details>
+<summary>解答</summary>
+
+```python
+@app.route('/',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('index.html')
+```
+
+</details>
 
 ## 問題３：FlaskとHTMLのやりとり
 `index.html`は以下のようなコードになっています。
@@ -83,9 +130,35 @@ flaskライブラリから`Flask`,`render_template`, `request`をインポート
 
 問題２の問③のコードを変数`n`に10を代入して、`index.html`の`number`に変数`n`を渡すように書き換えてください。
 
+<details>
+<summary>解答</summary>
+
+```python
+@app.route('/',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        n = 10
+        return render_template('index.html',number = n)
+```
+
+</details>
+
 ### 問②(app.py)
 
 `http://xxx/data`にGETしたときに`data.html`を表示するような処理を書いてください。関数名はdataとしてください。
+
+<details>
+<summary>解答</summary>
+
+```python
+@app.route('/data',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('data.html')
+```
+
+</details>
+
 
 `data.html`は以下のようなコードになっています。
 
@@ -111,6 +184,15 @@ flaskライブラリから`Flask`,`render_template`, `request`をインポート
 
 inputで入力された値を`http://xxx/data`に`post`で送信するようにformの空白部分(~)を埋めてください。
 
+<details>
+<summary>解答</summary>
+
+```html
+<form action='/data' method='POST'>
+```
+
+</details>
+
 ### 問④(app.py)
 
 問②で書いたコードに以下の処理を書き加えてください。
@@ -128,4 +210,19 @@ inputで入力された値を`http://xxx/data`に`post`で送信するようにf
 
 </details>
 
+<details>
+<summary>解答</summary>
+
+
+```python
+@app.route('/data',methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('data.html')
+    else:
+        data = request.form['data']
+        return render_template('index.html', number = data)
+```
+
+</details>
 
